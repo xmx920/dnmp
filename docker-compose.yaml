@@ -1,0 +1,38 @@
+version: '2.2'
+
+services:
+  php-fpm:
+    build: php-fpm
+    ports:
+      - 9000:9000
+      - 9090:9090
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - E:\dnmp\www:/var/www
+    working_dir: /var/www
+    tty: true
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      TZ: Asia/Shanghai
+    ports:
+      - 3306:3306
+    restart: always
+    volumes:
+      - ./mysql/data_dir:/var/lib/mysql
+      - ./mysql/log:/var/log/mysql
+  nginx:
+    build: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/default/:/usr/share/nginx/html
+      - ./nginx/sites/:/etc/nginx/conf.d/
+      - ./nginx/logs/:/var/log/nginx
+      - E:\dnmp\www:/var/www
+  redis:
+    image: redis:latest
+    ports:
+    - 6379:6379
