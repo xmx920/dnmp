@@ -1,5 +1,1 @@
 .idea
-mysql/data_dir
-mysql/log
-nginx/logs
-nginx/sites
