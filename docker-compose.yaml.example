@@ -9,7 +9,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
     volumes:
-      - ~/workspace/project:/var/www
+      - E:\dnmp\www:/var/www
     working_dir: /var/www
     tty: true
   mysql:
@@ -31,7 +31,7 @@ services:
       - ./nginx/default/:/usr/share/nginx/html
       - ./nginx/sites/:/etc/nginx/conf.d/
       - ./nginx/logs/:/var/log/nginx
-      - ~/workspace/project:/var/www
+      - E:\dnmp\www:/var/www
   redis:
     image: redis:latest
     ports:
