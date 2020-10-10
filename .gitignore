@@ -1,3 +1,3 @@
 .idea
-nginx/logs/*.log
-mysql/log/*.log
+./nginx/logs/*.log
+./mysql/log/*.log
